@@ -1,11 +1,12 @@
+import { useCounterStore } from '@/store';
 import React, { useEffect } from 'react';
 
 import './App.css';
 import logo from './logo.svg';
-import { useCounterStore } from './store';
 
 interface AppProps {}
 
+// eslint-disable-next-line no-empty-pattern
 function App({}: AppProps) {
   const { bears, increasePopulation } = useCounterStore((state) => ({
     bears: state.bears,

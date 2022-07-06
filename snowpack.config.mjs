@@ -26,12 +26,12 @@ export default {
   optimize: {
     bundle: true,
     minify: true,
-    target: 'es2018',
+    target: 'esnext',
   },
   packageOptions: {
     polyfillNode: true,
     // streaming imports occur so many errors
-    // source: 'remote',
+    source: 'local',
     // types: true,
   },
   devOptions: {

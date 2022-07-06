@@ -15,14 +15,15 @@
     "build": "snowpack build",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write --config ./.prettierrc.cjs \"./src/**/*.{ts,tsx,js,jsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint \"./src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint --fix \"./src/**/*.{ts,tsx,js,jsx}\"",
     "lint:commit": "commitlint --edit",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx}": [
+    "./src/**/*.{ts,tsx,js,jsx}": [
       "pnpm format",
-      "pnpm lint"
+      "pnpm lint:fix"
     ]
   },
   "dependencies": {
@@ -49,8 +50,18 @@
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/snowpack-env": "^2.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "@web/test-runner": "^0.13.31",
     "chai": "^4.3.6",
+    "core-js": "3",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
