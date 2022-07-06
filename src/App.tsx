@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import './App.css';
 import logo from './logo.svg';
+import { useCounterStore } from './store';
 
 interface AppProps {}
 
 function App({}: AppProps) {
-  const [count, setCount] = useState(0);
+  const { bears, increasePopulation } = useCounterStore((state) => ({
+    bears: state.bears,
+    increasePopulation: state.increasePopulation,
+  }));
 
   useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
+    const timer = setTimeout(() => increasePopulation(), 1000);
     return () => clearTimeout(timer);
-  }, [count, setCount]);
+  }, [bears, increasePopulation]);
 
   return (
     <div className="App">
@@ -21,7 +25,7 @@ function App({}: AppProps) {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <p>
-          Page has been open for <code>{count}</code> seconds.
+          Page has been open for <code>{bears}</code> seconds.
         </p>
         <p>
           <a

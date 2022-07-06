@@ -30,14 +30,15 @@ export default {
   },
   packageOptions: {
     polyfillNode: true,
-    source: 'remote',
-    types: true,
+    // streaming imports occur so many errors
+    // source: 'remote',
+    // types: true,
   },
   devOptions: {
     port: 3000,
   },
   buildOptions: {
-    sourcemap: true,
+    sourcemap: false,
   },
   testOptions: {
     files: ['**/*.@(spec|test).*'],
